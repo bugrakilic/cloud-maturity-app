@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Cloud Migration Maturity Test</h2>
+
+<a href="{{ url_for('index') }}" class="btn btn-secondary mb-3">Back</a>
+
+<div>
+    <p><i>Scoring calculation: 
+        1 - Not ready, 
+        2 - Slightly ready, 
+        3 - Somewhat ready, 
+        4 - Mostly ready, 
+        5 - Fully ready
+    </i></p>
+</div>
+
+<form method="POST">
+    <div class="accordion" id="accordionExample">
+        {% for section, questions in questions.items() %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading{{ loop.index }}">
+                    <button 
+                        class="accordion-button" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#collapse{{ loop.index }}" 
+                        aria-expanded="true" 
+                        aria-controls="collapse{{ loop.index }}">
+                        {{ section }}
+                    </button>
+                </h2>
+                <div 
+                    id="collapse{{ loop.index }}" 
+                    class="accordion-collapse collapse show" 
+                    aria-labelledby="heading{{ loop.index }}" 
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {% for question in questions %}
+                            <div class="mb-3">
+                                <label>{{ question.question }}</label>
+                                <div>
+                                    {% for i in range(1, 6) %}
+                                        <input type="radio" name="{{ question.id }}" value="{{ i }}" required> {{ i }}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Submit</button>
+</form>
+
+{% if scores %}
+    <h3 class="mt-4">Test Result</h3>
+    <p>Total Score: {{ total_score }}</p>
+    <p>{{ explanation }}</p>
+{% endif %}
+{% endblock %}
