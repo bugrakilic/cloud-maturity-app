@@ -1,12 +1,14 @@
+# Cloud Maturity App
+
 The cloud maturity test aims to raise awareness for businesses interested in migrating their on-premises to the cloud platforms. 
 
 The test includes below categories. User should select a readiness level for each question. The test evaluates the average score based on the answers, then recommends a path to the user. 
 
 This is an open-source project. Please consider contributing. Any feedback is welcome. 
 
-### Cloud Maturity Test Questions: 
+## Cloud Maturity Test Questions: 
 
-##### Cloud Readiness:
+#### Cloud Readiness:
 - Does your organization have clear cloud adoption goals and timelines?
 - Is cloud migration aligned with your long-term business objectives?
 - Does the executive team actively support and prioritize cloud initiatives?
@@ -25,7 +27,7 @@ This is an open-source project. Please consider contributing. Any feedback is we
 - Are contingency plans in place for critical applications during migration?
 - Is there an assessment of vendor lock-in or potential service disruptions?
 
-##### Workload Suitability: 
+#### Workload Suitability: 
 - Have you identified and documented all workloads currently running on-premises?
 - Are critical applications clearly distinguished from less critical ones?
 - Is there a categorization of workloads based on technical requirements, such as compute, storage, and network needs?
@@ -47,7 +49,7 @@ This is an open-source project. Please consider contributing. Any feedback is we
 - Are there existing software licenses that could pose restrictions or additional costs when migrating to the cloud?
 - Have you identified workloads that would benefit from cloud cost models like pay-as-you-go or reserved instances?
 
-##### Security & Compliance: 
+#### Security & Compliance: 
 - Is there a defined security strategy that includes cloud environments?
 - Are there clear roles and responsibilities for cloud security within your organization?
 - Does your organization use centralized IAM solutions compatible with cloud platforms (e.g., AWS IAM)?
@@ -66,7 +68,7 @@ This is an open-source project. Please consider contributing. Any feedback is we
 - Are service-level agreements (SLAs) and shared responsibility models clearly understood and documented?
 - Is there a continuous evaluation of third-party tools and integrations for security vulnerabilities?
 
-##### Cost & Budget: 
+#### Cost & Budget: 
 - Has your organization developed a clear financial strategy for cloud migration, including expected cost savings and ROI?
 - Do you have a documented budget specifically for cloud migration and ongoing cloud operations?
 - Have you conducted a Total Cost of Ownership (TCO) analysis comparing on-premises vs. cloud costs?
@@ -85,7 +87,7 @@ This is an open-source project. Please consider contributing. Any feedback is we
 - Are there ongoing efforts to educate teams on cloud cost management practices and financial accountability?
 - Do you have FinOps metrics in place (e.g., cost per workload, cost per user) to measure cloud financial performance?
 
-##### Operations & DevOps: 
+#### Operations & DevOps: 
 - Are development and operations teams integrated, promoting a collaborative DevOps culture?
 - Do you have cross-functional teams responsible for both development and ongoing support of applications in the cloud?
 - Are Continuous Integration and Continuous Deployment (CI/CD) pipelines implemented and used consistently?
