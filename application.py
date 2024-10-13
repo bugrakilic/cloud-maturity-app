@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 # Test questions 
 questions = {
@@ -105,11 +105,11 @@ questions = {
     ]
 }
 
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/test', methods=['GET', 'POST'])
+@application.route('/test', methods=['GET', 'POST'])
 def test():
     if request.method == 'POST':
         # Calculation of the total score
@@ -161,4 +161,4 @@ def test():
     return render_template('test.html', questions=questions)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)
