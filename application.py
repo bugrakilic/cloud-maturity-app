@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 # Test questions 
 questions = {
-    "Cloud Readiness": [
+    "Cloud Readiness": [ 
         {"question": "Does your organization have clear cloud adoption goals and timelines?", "id": "q1"},
         {"question": "Is cloud migration aligned with your long-term business objectives?", "id": "q2"},
         {"question": "Does the executive team actively support and prioritize cloud initiatives?", "id": "q3"},

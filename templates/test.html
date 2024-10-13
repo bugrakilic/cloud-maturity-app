@@ -14,7 +14,8 @@
     </i></p>
 </div>
 
-<form method="POST">
+<!-- Tagging with novalidate -->
+<form method="POST" novalidate>
     <div class="accordion" id="accordionExample">
         {% for section, questions in questions.items() %}
             <div class="accordion-item">
@@ -42,6 +43,8 @@
                                     {% for i in range(1, 6) %}
                                         <input type="radio" name="{{ question.id }}" value="{{ i }}" required> {{ i }}
                                     {% endfor %}
+                                    <!-- Bootstrap validation feedback -->
+                                    <div class="invalid-feedback">This question is required.</div>
                                 </div>
                             </div>
                         {% endfor %}
@@ -53,9 +56,46 @@
     <button type="submit" class="btn btn-success mt-3">Submit</button>
 </form>
 
+<!-- Use hidden input to pass scores to JavaScript -->
+<input type="hidden" id="scores" value="{{ scores if scores else '' }}">
+
 {% if scores %}
     <h3 class="mt-4">Test Result</h3>
     <p>Total Score: {{ total_score }}</p>
     <p>{{ explanation }}</p>
 {% endif %}
+
+<!-- Add this script to collapse sections on page load if scores exist -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const scores = document.getElementById('scores').value; // Get the value of scores from hidden input
+
+    // Collapsing accordion sections if scores exist
+    if (scores) {
+        const accordions = document.querySelectorAll('.accordion-collapse');
+        accordions.forEach(accordion => {
+            accordion.classList.remove('show'); // Collapse the section
+        });
+
+        // Scrolling to the result after form submission
+        const resultSection = document.querySelector('h3'); // Assuming result section is wrapped in h3
+        if (resultSection) {
+            resultSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Form validation and submission handling
+    form.addEventListener('submit', function (event) {
+        // Check if the form is valid
+        if (!form.checkValidity()) {
+            event.preventDefault(); 
+            event.stopPropagation(); 
+        }
+
+        form.classList.add('was-validated'); // Bootstrap validation styles
+    }, false);
+});
+</script>
+
 {% endblock %}
